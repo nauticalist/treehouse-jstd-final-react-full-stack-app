@@ -1,11 +1,12 @@
 import React, { Component, createContext } from "react";
-import { getUser } from "../data/getUser";
+import { getUser } from "../data";
 
 export const AuthContext = createContext();
 
 export class Provider extends Component {
   constructor() {
     super();
+    // check for previous login status from local storage
     this.state = {
       isAuthenticated: localStorage.getItem("isAuthenticated"),
       authUser: JSON.parse(localStorage.getItem("authUser")),

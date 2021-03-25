@@ -1,5 +1,5 @@
 import React from "react";
-import { useCourses } from "../hooks/useCourses";
+import { useCourses } from "../hooks";
 import { CourseList, CreateCourseLink } from "../components/course";
 import { useHistory } from "react-router-dom";
 

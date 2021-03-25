@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+/**
+ * Custom hook for loading all courses
+ *
+ * @returns {{isLoading: boolean, courses: *[], error: Object}}
+ */
 export const useCourses = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [courses, setCourses] = useState([]);

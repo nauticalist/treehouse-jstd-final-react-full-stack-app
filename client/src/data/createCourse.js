@@ -1,5 +1,12 @@
 import axios from "axios";
 
+/**
+ * posts new course data to endpoint with credentials
+ *
+ * @param {Object} course
+ * @param {Object} user
+ * @returns {Promise}
+ */
 export const createCourse = (course, user) => {
   return new Promise((resolve, reject) => {
     axios

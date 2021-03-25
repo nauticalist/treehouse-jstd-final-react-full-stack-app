@@ -1,5 +1,12 @@
 import axios from "axios";
 
+/**
+ * send delete request to course endpoint with credentials
+ *
+ * @param {number} id course id
+ * @param {Object} user
+ * @returns {Promise}
+ */
 export const deleteCourse = (id, user) => {
   return new Promise((resolve, reject) => {
     axios

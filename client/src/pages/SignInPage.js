@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../context/context";
-import { useForm } from "../hooks/useForm";
+import { useForm } from "../hooks";
 import { validateLoginForm } from "../validation";
 
 export const SignInPage = (props) => {

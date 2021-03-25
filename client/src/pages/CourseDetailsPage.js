@@ -1,5 +1,5 @@
 import React from "react";
-import { useCourse } from "../hooks/useCourse";
+import { useCourse } from "../hooks";
 import { useParams, Redirect, useHistory } from "react-router-dom";
 import { ActionBar, CourseDetails } from "../components/course";
 

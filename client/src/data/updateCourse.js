@@ -1,5 +1,13 @@
 import axios from "axios";
 
+/**
+ * Update a specific course with user credentials
+ *
+ * @param {number} id
+ * @param {Object} course
+ * @param {Object} user
+ * @returns {Promise}
+ */
 export const updateCourse = (id, course, user) => {
   return new Promise((resolve, reject) => {
     axios

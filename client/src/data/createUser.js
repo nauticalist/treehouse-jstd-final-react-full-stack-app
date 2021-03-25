@@ -1,5 +1,11 @@
 import axios from "axios";
 
+/**
+ * posts new user data to endpoint
+ *
+ * @param {Object} user
+ * @returns {Promise}
+ */
 export const createUser = (user) => {
   return new Promise((resolve, reject) => {
     axios

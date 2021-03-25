@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
-import { getCourse } from "../data/getCourse";
+import { getCourse } from "../data";
 
+/**
+ * Custom hook for loading course by id
+ *
+ * @param {number} courseId
+ * @returns {{isLoading: boolean, course: Object, error: boolean, status: number}}
+ */
 export const useCourse = (courseId) => {
   const [isLoading, setIsLoading] = useState(true);
   const [course, setCourse] = useState(null);

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 
-export const CourseDetails = ({ isLoading, course }) => (
+export const CourseDetails = ({ course }) => (
   <div className="wrap">
     <h2>Course Detail</h2>
     <div className="main--flex">

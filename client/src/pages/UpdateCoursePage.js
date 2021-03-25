@@ -1,11 +1,10 @@
 import React, { useState, useContext } from "react";
 import { Redirect, useHistory, useParams } from "react-router-dom";
-import { useForm } from "../hooks/useForm";
-import { validateCourseForm } from "../validation/validateCourseForm";
+import { useCourse, useForm } from "../hooks";
+import { validateCourseForm } from "../validation";
 import { ErrorDisplay } from "../components/ErrorDisplay";
 import { AuthContext } from "../context/context";
-import { useCourse } from "../hooks/useCourse";
-import { updateCourse } from "../data/updateCourse";
+import { updateCourse } from "../data";
 
 export const UpdateCoursePage = () => {
   const { authUser } = useContext(AuthContext);
@@ -34,7 +33,7 @@ export const UpdateCoursePage = () => {
     };
 
     updateCourse(id, updatedCourse, authUser)
-      .then(() => history.push("/"))
+      .then(() => history.push(`/courses/${course.id}`))
       .catch((error) => {
         if (error.status === 400) {
           setApiError(error.data.errors);

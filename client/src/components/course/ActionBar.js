@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../../context/context";
-import { deleteCourse } from "../../data/deleteCourse";
+import { deleteCourse } from "../../data";
 
 export const ActionBar = ({ course }) => {
   const { isAuthenticated, authUser } = useContext(AuthContext);

@@ -5,7 +5,7 @@ import axios from "axios";
  *
  * @param {string} email as username
  * @param {string} password
- * @returns {Promise} logged in user info
+ * @returns {Promise} logged in user data
  */
 export const getUser = (email, password) => {
   return new Promise((resolve, reject) => {

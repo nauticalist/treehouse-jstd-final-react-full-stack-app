@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useForm } from "../hooks/useForm";
+import { useForm } from "../hooks";
 import { validateSignUpForm } from "../validation";
-import { createUser } from "../data/createUser";
+import { createUser } from "../data";
 import { ErrorDisplay } from "../components/ErrorDisplay";
 import { AuthContext } from "../context/context";
 

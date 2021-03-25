@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { useForm } from "../hooks/useForm";
-import { validateCourseForm } from "../validation/validateCourseForm";
+import { useForm } from "../hooks";
+import { validateCourseForm } from "../validation";
 import { ErrorDisplay } from "../components/ErrorDisplay";
 import { AuthContext } from "../context/context";
-import { createCourse } from "../data/createCourse";
+import { createCourse } from "../data";
 
 export const CreateCoursePage = () => {
   const [apiError, setApiError] = useState([]);
