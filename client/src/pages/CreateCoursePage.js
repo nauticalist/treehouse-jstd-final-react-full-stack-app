@@ -17,9 +17,9 @@ export const CreateCoursePage = () => {
 
   function handleCreateCourse() {
     const course = {
-      title: values.courseTitle,
+      title: values.title,
       userId: authState.authUser.userId,
-      description: values.courseDescription,
+      description: values.description,
       estimatedTime: values.estimatedTime,
       materialsNeeded: values.materialsNeeded,
     };
@@ -47,20 +47,18 @@ export const CreateCoursePage = () => {
         <h2>Create Course</h2>
 
         <ErrorDisplay errors={apiError} />
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className="main--flex">
             <div>
-              <label htmlFor="courseTitle">Course Title</label>
+              <label htmlFor="title">Course Title</label>
               <input
-                id="courseTitle"
-                name="courseTitle"
+                id="title"
+                name="title"
                 type="text"
-                value={values.courseTitle || ""}
+                value={values.title || ""}
                 onChange={handleChange}
               />
-              {errors.courseTitle && (
-                <p className="field-error">{errors.courseTitle}</p>
-              )}
+              {errors.title && <p className="field-error">{errors.title}</p>}
 
               <label htmlFor="courseAuthor">Course Author</label>
               <input
@@ -71,15 +69,15 @@ export const CreateCoursePage = () => {
                 disabled
               />
 
-              <label htmlFor="courseDescription">Course Description</label>
+              <label htmlFor="description">Course Description</label>
               <textarea
-                id="courseDescription"
-                name="courseDescription"
-                value={values.courseDescription || ""}
+                id="description"
+                name="description"
+                value={values.description || ""}
                 onChange={handleChange}
               />
-              {errors.courseDescription && (
-                <p className="field-error">{errors.courseDescription}</p>
+              {errors.description && (
+                <p className="field-error">{errors.description}</p>
               )}
             </div>
             <div>
@@ -101,7 +99,7 @@ export const CreateCoursePage = () => {
               />
             </div>
           </div>
-          <button className="button" type="submit">
+          <button className="button" onClick={handleSubmit}>
             Create Course
           </button>
           <button className="button button-secondary" onClick={handleCancel}>

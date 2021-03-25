@@ -4,7 +4,7 @@ import { AuthContext } from "../context/context";
 import { useForm } from "../hooks/useForm";
 import { validateLoginForm } from "../validation";
 
-export const SignInPage = () => {
+export const SignInPage = (props) => {
   const [apiError, setApiError] = useState(null);
   const { values, errors, handleChange, handleSubmit } = useForm(
     login,
@@ -14,9 +14,10 @@ export const SignInPage = () => {
   const context = useContext(AuthContext);
 
   function login() {
+    const { from } = props.location.state || { from: { pathname: "/" } };
     context.actions
       .signIn(values.emailAddress, values.password)
-      .then(() => history.push("/"))
+      .then(() => history.push(from))
       .catch((error) => {
         if (error === 401) {
           setApiError({

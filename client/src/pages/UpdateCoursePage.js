@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Redirect, useHistory, useParams } from "react-router-dom";
 import { useForm } from "../hooks/useForm";
 import { validateCourseForm } from "../validation/validateCourseForm";
@@ -20,14 +20,15 @@ export const UpdateCoursePage = () => {
   const [apiError, setApiError] = useState([]);
   const { values, errors, handleChange, handleSubmit } = useForm(
     handleUpdateCourse,
-    validateCourseForm
+    validateCourseForm,
+    course
   );
 
   function handleUpdateCourse() {
     const updatedCourse = {
-      title: values.courseTitle,
+      title: values.title,
       userId: authUser.userId,
-      description: values.courseDescription,
+      description: values.description,
       estimatedTime: values.estimatedTime,
       materialsNeeded: values.materialsNeeded,
     };
@@ -48,7 +49,7 @@ export const UpdateCoursePage = () => {
   }
 
   const handleCancel = () => {
-    history.push("/");
+    history.push(`/courses/${course.id}`);
   };
 
   return (
@@ -65,19 +66,19 @@ export const UpdateCoursePage = () => {
                 <div className="wrap">
                   <h2>Update Course</h2>
                   <ErrorDisplay errors={apiError} />
-                  <form onSubmit={handleSubmit}>
+                  <form>
                     <div className="main--flex">
                       <div>
-                        <label htmlFor="courseTitle">Course Title</label>
+                        <label htmlFor="title">Course Title</label>
                         <input
-                          id="courseTitle"
-                          name="courseTitle"
+                          id="title"
+                          name="title"
                           type="text"
-                          value={values.courseTitle || course.title}
+                          value={values.title}
                           onChange={handleChange}
                         />
-                        {errors.courseTitle && (
-                          <p className="field-error">{errors.courseTitle}</p>
+                        {errors.title && (
+                          <p className="field-error">{errors.title}</p>
                         )}
 
                         <label htmlFor="courseAuthor">Course Author</label>
@@ -89,19 +90,15 @@ export const UpdateCoursePage = () => {
                           disabled
                         />
 
-                        <label htmlFor="courseDescription">
-                          Course Description
-                        </label>
+                        <label htmlFor="description">Course Description</label>
                         <textarea
-                          id="courseDescription"
-                          name="courseDescription"
-                          value={values.courseDescription || course.description}
+                          id="description"
+                          name="description"
+                          value={values.description}
                           onChange={handleChange}
                         />
-                        {errors.courseDescription && (
-                          <p className="field-error">
-                            {errors.courseDescription}
-                          </p>
+                        {errors.description && (
+                          <p className="field-error">{errors.description}</p>
                         )}
                       </div>
                       <div>
@@ -110,7 +107,7 @@ export const UpdateCoursePage = () => {
                           id="estimatedTime"
                           name="estimatedTime"
                           type="text"
-                          value={values.estimatedTime || course.estimatedTime}
+                          value={values.estimatedTime}
                           onChange={handleChange}
                         />
 
@@ -120,14 +117,12 @@ export const UpdateCoursePage = () => {
                         <textarea
                           id="materialsNeeded"
                           name="materialsNeeded"
-                          value={
-                            values.materialsNeeded || course.materialsNeeded
-                          }
+                          value={values.materialsNeeded}
                           onChange={handleChange}
                         />
                       </div>
                     </div>
-                    <button className="button" type="submit">
+                    <button className="button" onClick={handleSubmit}>
                       Update Course
                     </button>
                     <button

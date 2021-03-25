@@ -24,7 +24,8 @@ export const useCourse = (courseId) => {
           }
         })
         .catch((error) => {
-          if (error.response.status === 404) {
+          console.log(error);
+          if (error.status === 404) {
             setStatus(404);
             setError(true);
             setIsLoading(false);
